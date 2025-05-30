@@ -7,6 +7,7 @@ const years = Array.from({ length: 2024 - 2004 + 1 }, (_, i) => 2004 + i)
 type Item = {
   title: string
   score: number
+  img: string | undefined
 }
 const result: Record<string, Item[]> = {}
 for (const year of years) {
@@ -19,7 +20,8 @@ for (const year of years) {
   $(".item").each((_, el) => {
     const title = $(el).find("h3 .l").text().trim()
     const score = Number($(el).find(".rateInfo .fade").text().trim())
-    items.push({ title, score })
+    const img = $(el).find("img").attr("src")
+    items.push({ title, score, img })
   })
   result[year] = items
 }

@@ -173,7 +173,7 @@ ${Object.keys(animeData)
                       return (
                         <button
                           key={item.title}
-                          className={`size-16 md:size-20 border-l break-all text-center shrink-0 inline-flex items-center p-1 overflow-hidden justify-center cursor-pointer text-sm  ${
+                          className={`size-16 md:size-20 border-l break-all text-center shrink-0 inline-flex flex-col items-center p-1 overflow-hidden justify-center cursor-pointer text-sm  ${
                             isSelected ? "bg-green-500" : "hover:bg-zinc-100"
                           }`}
                           title={item.title}
@@ -188,6 +188,9 @@ ${Object.keys(animeData)
                             })
                           }}
                         >
+                          <span className="leading-tight w-full line-clamp-3">
+                            <img src={`https:${item.img}`} className="size-10 md:size-12 ml-auto mr-auto" />
+                          </span>
                           <span className="leading-tight w-full line-clamp-3">
                             {item.title}
                           </span>

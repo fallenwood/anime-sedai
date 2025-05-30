@@ -4,7 +4,7 @@ import { useState } from "react";
 export const usePersistState = <T>(key: string, initialValue: T) => {
   const [state, setState] = useState<T>(() => {
     const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : initialValue;
+    return item !== null && item !== undefined && item !== "undefined" ? JSON.parse(item) : initialValue;
   });
 
   useEffect(() => {
